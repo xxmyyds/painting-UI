@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <router-view></router-view>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script lang="ts">
+import { computed, provide, ref } from 'vue'
+import { router } from './router'
+import { useStore } from 'vuex'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  setup() {
+    const store = useStore()
+    const visible = computed(() => store.state.asideVisible)
+    const width = ref(document.documentElement.clientWidth)
+    const asideVisible = ref(true)
+    const onResize = () => {
+      width.value = document.documentElement.clientWidth
+      asideVisible.value = width.value <= 500 ? visible.value : true
+    }
+    window.addEventListener('resize', onResize)
+    provide('asideVisible', asideVisible)
+    router.afterEach(() => {
+      if (width.value <= 500) {
+        asideVisible.value = false
+      }
+    })
+  },
 }
 </script>
