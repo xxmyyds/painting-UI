@@ -33,8 +33,6 @@ export default {
   components: { TopNav },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
-    console.log(asideVisible.value)
-
     return {
       asideVisible,
     }
@@ -66,7 +64,6 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
   }
 }
 aside {
@@ -78,6 +75,7 @@ aside {
   left: 0;
   padding-top: 70px;
   height: 100%;
+  z-index: 9;
   > h2 {
     margin-bottom: 4px;
   }

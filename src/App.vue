@@ -22,6 +22,7 @@ export default {
     router.afterEach(() => {
       if (width.value <= 500) {
         asideVisible.value = false
+        store.commit('setAsideVisible', asideVisible.value)
       }
     })
   },
