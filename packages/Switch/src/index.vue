@@ -1,26 +1,52 @@
 <template>
-  <button class="painting-switch-wrapper" :class="{ checked: value }" @click="toggle">
+  <button
+    :style="{ width: width + 'px' }"
+    class="painting-switch-wrapper"
+    :class="{ checked: currentValue }"
+    :disabled="disabled"
+    @click="toggle"
+  >
     <span></span>
     <div class="painting-switch-inner">
-      <slot name="open" v-if="value === true"></slot>
-      <slot name="close" v-if="value === false"></slot>
+      <slot name="open" v-if="currentValue"></slot>
+      <slot name="close" v-if="!currentValue"></slot>
     </div>
   </button>
 </template>
 
 <script lang="ts">
+import { ref, watch } from 'vue'
 export default {
   name: 'Switch',
   props: {
-    value: Boolean,
+    value: {
+      type: [String, Number, Boolean],
+    },
+    width: {
+      type: Number,
+      default: 44,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, context) {
+    let currentValue = ref(props.value)
     const toggle = () => {
-      context.emit('update:value', !props.value)
-      console.log(props.value)
+      if (!props.disabled) {
+        currentValue.value = !currentValue.value
+        context.emit('update:value', !props.value)
+        context.emit('on-change', !props.value)
+      }
     }
-
-    return { toggle }
+    watch(
+      () => props.value,
+      (newVal) => {
+        currentValue.value = newVal
+      }
+    )
+    return { toggle, currentValue }
   },
 }
 </script>
