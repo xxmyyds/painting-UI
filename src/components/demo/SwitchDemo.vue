@@ -8,7 +8,7 @@
     </template>
   </Switch>
   <br />---------------------------------------------------------<br />
-  <Switch v-model:value="bool" :width="60">
+  <Switch v-model:value="bool1" :width="60">
     <template v-slot:open>
       <span>开启</span>
     </template>
@@ -19,7 +19,7 @@
   <br />---------------------------------------------------------<br />
   <Switch disabled></Switch>
   <br />---------------------------------------------------------<br />
-  <Switch v-model:value="bool" @on-change="onChange"></Switch>
+  <Switch v-model:value="bool2" @on-change="onChange"></Switch>
 </template>
 
 <script lang="ts">
@@ -27,12 +27,14 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const bool = ref(1)
+    const bool1 = ref(1)
+    const bool2 = ref(1)
     const onChange = (status: boolean) => {
       console.log(status)
     }
     return {
-      bool,
+      bool1,
+      bool2,
       onChange,
     }
   },

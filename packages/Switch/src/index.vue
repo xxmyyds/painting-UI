@@ -2,7 +2,7 @@
   <button
     :style="{ width: width + 'px' }"
     class="painting-switch-wrapper"
-    :class="{ checked: currentValue }"
+    :class="{ 'painting-checked': currentValue }"
     :disabled="disabled"
     @click="toggle"
   >

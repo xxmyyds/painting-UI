@@ -34,13 +34,13 @@ $grey: grey;
     border-radius: $h2 / 2;
     transition: all 250ms;
   }
-  &.checked {
+  &.painting-checked {
     background: #3399ff;
   }
-  &.checked > span {
+  &.painting-checked > span {
     left: calc(100% - #{$h2} - 3px);
   }
-  &.checked > .painting-switch-inner {
+  &.painting-checked > .painting-switch-inner {
     position: absolute;
     display: flex;
     font-size: 12px;
@@ -56,7 +56,7 @@ $grey: grey;
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.painting-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;

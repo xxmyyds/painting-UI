@@ -1,0 +1,265 @@
+$h: 41px;
+$border-color: #d9d9d9;
+$bl-color: #333;
+
+$default-disabled-color: #c0c4cc;
+$default-hover-color: #ecf5ff;
+$default-active-color: #40a9ff;
+
+$primary-disabled-color: #a0cfff;
+$primary-color: #409eff;
+$primary-hover-color: #66b1ff;
+$primary-active-color: #3a8ee6;
+
+$success-disabled-color: #b3e19d;
+$success-color: #67c23a;
+$success-hover-color: #85ce61;
+$success-active-color: #5daf34;
+
+$info-disabled-color: #c8c9cc;
+$info-color: #909399;
+$info-hover-color: #a6a9ad;
+$info-active-color: #82848a;
+
+$warning-disabled-color: #f3d19e;
+$warning-color: #e6a23c;
+$warning-hover-color: #ebb563;
+$warning-active-color: #cf9236;
+
+$danger-disabled-color: #fab6b6;
+$danger-color: #f56c6c;
+$danger-hover-color: #f78989;
+$danger-active-color: #dd6161;
+
+$radius: 4px;
+.painting-button {
+  box-sizing: border-box;
+  height: $h;
+  padding: 0 12px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background: white;
+  color: $bl-color;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: background 250ms;
+
+  // 主要按钮
+  &.painting-theme-primary {
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover,
+    &:focus {
+      background-color: $primary-hover-color;
+      color: #fff;
+    }
+    &:active {
+      background-color: $primary-active-color;
+      border-color: $primary-color;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $primary-disabled-color;
+      color: #fff;
+      border-color: $primary-disabled-color;
+      &:hover {
+        background-color: $primary-disabled-color;
+        color: #fff;
+      }
+    }
+  }
+
+  // 成功按钮
+  &.painting-theme-success {
+    color: #fff;
+    background-color: $success-color;
+    border-color: $success-color;
+    &:hover,
+    &:focus {
+      background-color: $success-hover-color;
+      color: #fff;
+    }
+    &:active {
+      background-color: $success-active-color;
+      border-color: $success-color;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $success-disabled-color;
+      color: #fff;
+      border-color: $success-disabled-color;
+      &:hover {
+        background-color: $success-disabled-color;
+        color: #fff;
+      }
+    }
+  }
+
+  // 信息按钮
+  &.painting-theme-info {
+    color: #fff;
+    background-color: $info-color;
+    border-color: $info-color;
+    &:hover,
+    &:focus {
+      background-color: $info-hover-color;
+      color: #fff;
+    }
+    &:active {
+      background-color: $info-active-color;
+      border-color: $info-color;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $info-disabled-color;
+      color: #fff;
+      border-color: $info-disabled-color;
+      &:hover {
+        background-color: $info-disabled-color;
+        color: #fff;
+      }
+    }
+  }
+
+  // 警告按钮
+  &.painting-theme-warning {
+    color: #fff;
+    background-color: $warning-color;
+    border-color: $warning-color;
+    &:hover,
+    &:focus {
+      background-color: $warning-hover-color;
+      color: #fff;
+    }
+    &:active {
+      background-color: $warning-active-color;
+      border-color: $warning-color;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $warning-disabled-color;
+      color: #fff;
+      border-color: $warning-disabled-color;
+      &:hover {
+        background-color: $warning-disabled-color;
+        color: #fff;
+      }
+    }
+  }
+
+  // 危险按钮
+  &.painting-theme-danger {
+    color: #fff;
+    background-color: $danger-color;
+    border-color: $danger-color;
+    &:hover,
+    &:focus {
+      background-color: $danger-hover-color;
+      color: #fff;
+    }
+    &:active {
+      background-color: $danger-active-color;
+      border-color: $danger-color;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $danger-disabled-color;
+      color: #fff;
+      border-color: $danger-disabled-color;
+      &:hover {
+        background-color: $danger-disabled-color;
+        color: #fff;
+      }
+    }
+  }
+
+  // 文本按钮
+  &.painting-theme-text {
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
+    &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+    &:active {
+      border-color: transparent;
+      color: #3a8ee6;
+    }
+  }
+  // 圆角按钮
+  &.is-round {
+    border-radius: 20px;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: $default-disabled-color;
+    &:hover {
+      color: $default-disabled-color;
+      background-color: #fff;
+    }
+  }
+  & + & {
+    margin-left: 8px;
+  }
+  &:hover,
+  &:focus {
+    color: $default-active-color;
+    background-color: $default-hover-color;
+  }
+  &:active {
+    border-color: $default-active-color;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  // 大型按钮
+  &.painting-size-large {
+    height: 44px;
+    padding: 0 16px;
+  }
+  // 小型按钮
+  &.painting-size-small {
+    height: 36px;
+    padding: 0 8px;
+  }
+  > .painting-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $primary-color $primary-color $primary-color transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: painting-spin 1s infinite linear;
+  }
+
+  @keyframes painting-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+[class~='painting-theme-primary'],
+[class~='painting-theme-success'],
+[class~='painting-theme-warning'],
+[class~='painting-theme-info'],
+[class~='painting-theme-danger'] {
+  > .painting-loadingIndicator {
+    border-color: #fff #fff #fff transparent;
+  }
+}
