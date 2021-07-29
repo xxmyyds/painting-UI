@@ -9,3 +9,6 @@ export function oneOf(value, validList) {
   }
   return false
 }
+export function hello() {
+  console.log('hello')
+}

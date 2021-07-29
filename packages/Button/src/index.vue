@@ -5,8 +5,8 @@
   </button>
 </template>
 
-<script>
-import { computed } from 'vue'
+<script lang="ts">
+import { computed, PropType } from 'vue'
 import { oneOf } from '../../../src/utils/assist'
 export default {
   name: 'Button',
@@ -15,14 +15,14 @@ export default {
     theme: {
       type: String,
       default: 'default',
-      validator(value) {
+      validator(value: string) {
         return oneOf(value, ['default', 'primary', 'success', 'info', 'warning', 'danger', 'text'])
       },
     },
     size: {
       type: String,
       default: 'default',
-      validator(value) {
+      validator(value: string) {
         return oneOf(value, ['default', 'large', 'small'])
       },
     },
@@ -40,7 +40,7 @@ export default {
     },
   },
   setup(props) {
-    const { theme, round, size } = props
+    const { theme, round, size } = props as any
     const classes = computed(() => {
       return {
         [`painting-theme-${theme}`]: theme,
