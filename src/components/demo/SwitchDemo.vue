@@ -16,9 +16,9 @@
       <span>关闭</span>
     </template>
   </Switch>
-  <br />---------------------------------------------------------<br />
+  <br /><br /><br />
   <Switch disabled></Switch>
-  <br />---------------------------------------------------------<br />
+  <br /><br /><br />
   <Switch v-model:value="bool2" @on-change="onChange"></Switch>
 </template>
 
